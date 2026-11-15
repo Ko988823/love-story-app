@@ -1,4 +1,4 @@
-namename: Build Our Love Story APK
+name: Build Our Love Story APK
 
 on:
   workflow_dispatch:
