@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ff6b9d">
+<title>Our Love Story ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(160deg,#ffe1eb,#fff5f8);color:#663044;text-align:center;min-height:100vh;padding:25px 16px}
+main{max-width:480px;margin:auto}
+h1{color:#e8437b;font-size:30px;margin:18px 0 8px}
+.sub{color:#a65b78;margin-bottom:25px}
+.card{background:#fff;border-radius:22px;padding:20px;margin:15px 0;box-shadow:0 5px 18px #d98ba333}
+.heart{font-size:42px}
+.number{font-size:38px;font-weight:bold;color:#e8437b;margin:8px}
+small{color:#987080}
+h2{font-size:19px;color:#d94378}
+textarea{width:100%;min-height:100px;border:1px solid #f3b4ca;border-radius:12px;padding:12px;font-size:16px;resize:vertical}
+button{background:#ed5b91;color:white;border:0;border-radius:12px;padding:12px 22px;font-size:16px;margin-top:10px}
+footer{font-size:12px;color:#a77b8c;margin:25px}
+</style>
+</head>
+<body>
+<main>
+  <div class="heart">💗</div>
+  <h1>Our Love Story</h1>
+  <div class="sub">ကိုကို ❤️ ကလေး</div>
+
+  <section class="card">
+    <h2>ပထမဆုံး တွေ့ခဲ့တဲ့နေ့ 🥰</h2>
+    <div class="number" id="met">—</div>
+    <small>၂၀၂၅ ဩဂုတ် ၂၂ မှ ယနေ့အထိ</small>
+  </section>
+
+  <section class="card">
+    <h2>ချစ်သူဖြစ်ခဲ့တဲ့နေ့ 💍</h2>
+    <div class="number" id="love">—</div>
+    <small>၂၀၂၅ အောက်တိုဘာ ၆ မှ ယနေ့အထိ</small>
+  </section>
+
+  <section class="card">
+    <div class="heart">❤️</div>
+    <h2>ကိုကိုနဲ့ ကလေးရဲ့ အချစ်ခရီး</h2>
+    <p>အကွာအဝေးတွေ ရှိနေပေမဲ့<br>အချစ်တွေကတော့ အမြဲနီးနေမှာပါ။</p>
+  </section>
+
+  <section class="card">
+    <h2>ကိုယ့်ရဲ့ အချစ်စာလေး 💌</h2>
+    <textarea id="note" placeholder="ကလေးအတွက် စာလေး ရေးထားပါ..."></textarea>
+    <button onclick="saveNote()">စာသိမ်းမယ် ❤️</button>
+    <p id="status"></p>
+  </section>
+  <footer>Made with Love ❤️ Our Love Story</footer>
+</main>
+<script>
+function daysSince(date){
+  const start=new Date(date+"T00:00:00");
+  const today=new Date();
+  today.setHours(0,0,0,0);
+  return Math.max(0,Math.floor((today-start)/86400000));
+}
+document.getElementById("met").textContent=daysSince("2025-08-22")+" ရက်";
+document.getElementById("love").textContent=daysSince("2025-10-06")+" ရက်";
+document.getElementById("note").value=localStorage.getItem("ourLoveNote")||"";
+function saveNote(){
+  localStorage.setItem("ourLoveNote",document.getElementById("note").value);
+  document.getElementById("status").textContent="သိမ်းပြီးပါပြီ ❤️";
+}
+</script>
+</body>
+</html>
