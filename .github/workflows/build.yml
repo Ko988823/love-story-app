@@ -1,3 +1,4 @@
+
 name: Build Our Love Story APK
 
 on:
@@ -6,7 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     env:
       ANDROID_HOME: /usr/local/lib/android/sdk
       ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
@@ -33,6 +33,12 @@ jobs:
         with:
           gradle-version: '8.9'
 
+      - name: Check Project Files
+        run: |
+          pwd
+          ls -la
+          find . -maxdepth 3 -name "settings.gradle*"
+
       - name: Build APK
         run: gradle -p "$GITHUB_WORKSPACE" :app:assembleDebug
 
@@ -41,3 +47,4 @@ jobs:
         with:
           name: Our-Love-Story-APK
           path: app/build/outputs/apk/debug/app-debug.apk
+          
