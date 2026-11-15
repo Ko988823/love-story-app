@@ -1,0 +1,29 @@
+name: Build Our Love Story APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Create Android Project
+        run: |
+          mkdir -p app/src/main/assets
+          echo "Creating project files"
+
+      - name: Build APK
+        run: |
+          echo "APK project setup is next"
